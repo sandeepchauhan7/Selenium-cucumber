@@ -1,4 +1,5 @@
-package com.selenium.example;
+package test.java.com.selenium.example;
+
 
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -10,7 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class GoogleTest {
 
-	@Test
 	public void Test() {
 		String OS = System.getProperty("os.name").toLowerCase();
 		// Create a new instance of the Firefox driver
