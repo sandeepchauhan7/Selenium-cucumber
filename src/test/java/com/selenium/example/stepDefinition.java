@@ -23,11 +23,16 @@ public class stepDefinition {
 	FirefoxProfile profile = null;
 	WebDriver driver = null;	
 	WebElement enter=null;
+	String OS = System.getProperty("os.name").toLowerCase();
 	
 	@Given("^I navigate to \"([^\"]*)\"$")
 	public void i_navigate_to(String url) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		System.setProperty("webdriver.gecko.driver", "C://Selenium driver/geckodriver.exe");
+		if(OS.contains("windows")){
+			System.setProperty("webdriver.gecko.driver", "src/test/resources/com/selenium/example/windows/geckodriver.exe");
+		}else if(OS.contains("linux")){
+			System.setProperty("webdriver.gecko.driver", "src/test/resources/com/selenium/example/linux/geckodriver");
+		}
 		allProfiles =new ProfilesIni();
 		profile = allProfiles.getProfile("skipssl");
 		driver = new FirefoxDriver(profile); 
